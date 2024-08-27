@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Product } from '../models/product';
 
 @Injectable({
@@ -11,5 +11,11 @@ export class ProductService {
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('../assets/data.json');
+  }
+
+  getProduct(productId: number): Observable<Product> {
+    return this.getProducts().pipe(
+      map((products) => products.filter((p) => p.id == productId)[0])
+    );
   }
 }

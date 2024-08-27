@@ -4,12 +4,14 @@ export class Product {
   price: number;
   category?: string;
   url?: string;
+  description?: string;
 
   constructor() {
     this.id = 1;
     this.name = '';
     this.price = 1;
     this.category = '';
-    this.url = ';';
+    this.url = '';
+    this.description = '';
   }
 }

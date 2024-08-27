@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ProductItemDetailsComponent } from './components/product-item-details/product-item-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent, ProductListComponent, ProductItemComponent, NavBarComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent, ProductListComponent, ProductItemComponent, NavBarComponent, ProductItemDetailsComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })

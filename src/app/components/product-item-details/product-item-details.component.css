@@ -1,0 +1,30 @@
+.product-container {
+  margin-top: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.product-image {
+  max-width: 25%;
+  min-width: 290px;
+  padding: 20px;
+  margin: 6px 6px;
+  border-radius: 30px;
+}
+
+.product-info {
+  width: 290px;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.select-input {
+  width: 108px;
+  margin-bottom: 8px;
+}
