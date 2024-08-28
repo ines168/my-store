@@ -5,6 +5,7 @@ export class Product {
   category?: string;
   url?: string;
   description?: string;
+  quantity?: number;
 
   constructor() {
     this.id = 1;
@@ -13,5 +14,6 @@ export class Product {
     this.category = '';
     this.url = '';
     this.description = '';
+    this.quantity = 1;
   }
 }

@@ -4,17 +4,23 @@
   /></a>
   <h3>{{ product.name }}</h3>
   <p>${{ product.price }}</p>
-  <select class="form-select select-input" aria-label="Default select example">
+  <select
+    class="form-select select-input"
+    [(ngModel)]="quantity"
+    aria-label="Default select example"
+  >
     <option selected value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
-    <option value="3">4</option>
-    <option value="3">5</option>
-    <option value="3">6</option>
-    <option value="3">7</option>
-    <option value="3">8</option>
-    <option value="3">9</option>
-    <option value="3">10</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
   </select>
-  <button class="btn btn-primary">Add to cart</button>
+  <button class="btn btn-primary" (click)="addToCart(product, quantity)">
+    Add to cart
+  </button>
 </div>

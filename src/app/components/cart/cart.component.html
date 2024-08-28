@@ -10,11 +10,13 @@
           class="form-select select-input"
           aria-label="Default select example"
         >
-          <option selected value="1">1</option>
+          <option selected value="{{ product.quantity }}">
+            {{ product.quantity }}
+          </option>
         </select>
       </div>
     </div>
-    <h3 class="">Total: $</h3>
+    <h3 class="">Total: ${{ total }}</h3>
   </div>
   <form class="cart-panel form-margin">
     <div class="mb-3">
