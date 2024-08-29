@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -10,9 +12,16 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent {
   products: Product[] = [];
   total: number = 0;
-  constructor(private cartService: CartService) {}
+  name: string = '';
+  address: string = '';
+  constructor(private cartService: CartService, private router: Router) {}
   ngOnInit(): void {
     this.products = this.cartService.getCart();
     this.total = this.cartService.getCartTotal();
+  }
+
+  onSubmit(): void {
+    this.cartService.clearCart();
+    this.router.navigate(['/success']);
   }
 }
