@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { Order } from '../models/order';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,7 @@ import { Product } from '../models/product';
 export class CartService {
   cartList: Product[] = [];
   total: number = 0;
+  orderList: Order[] = [];
 
   constructor() {}
 
@@ -35,5 +37,13 @@ export class CartService {
   clearCart() {
     this.cartList = [];
     return this.cartList;
+  }
+  paymentInfo(fullName: string, address: string, total: number) {
+    this.orderList.unshift({ fullName, address, total });
+    return this.orderList;
+  }
+
+  getPaymentInfo() {
+    return this.orderList;
   }
 }
