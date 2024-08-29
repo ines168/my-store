@@ -40,8 +40,19 @@ img {
   min-width: 25%;
 }
 
-.empty-cart-message {
+.empty-cart-container {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 64px;
+  margin-top: 8%;
+}
+
+.empty-cart-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-cart-item {
+  margin-bottom: 30px;
 }
