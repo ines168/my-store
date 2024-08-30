@@ -22,17 +22,17 @@ export class CartService {
     return this.cartList;
   }
 
-  getCartTotal() {
-    this.total = 0;
-    for (let product of this.cartList) {
-      if (product.quantity) {
-        this.total += product.price * product.quantity;
-      } else {
-        this.total += product.price;
-      }
-    }
-    return this.total;
-  }
+  // getCartTotal() {
+  //   this.total = 0;
+  //   for (let product of this.cartList) {
+  //     if (product.quantity) {
+  //       this.total += product.price * product.quantity;
+  //     } else {
+  //       this.total += product.price;
+  //     }
+  //   }
+  //   return this.total;
+  // }
 
   clearCart() {
     this.cartList = [];

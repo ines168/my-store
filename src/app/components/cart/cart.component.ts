@@ -18,13 +18,33 @@ export class CartComponent {
   constructor(private cartService: CartService, private router: Router) {}
   ngOnInit(): void {
     this.products = this.cartService.getCart();
-    this.total = this.cartService.getCartTotal();
+    this.getCartTotal();
   }
 
   onSubmit(): void {
     this.cartService.clearCart();
     this.cartService.paymentInfo(this.name, this.address, this.total);
     this.router.navigate(['/success']);
-    alert(this.name);
+  }
+
+  getCartTotal() {
+    this.total = 0;
+    for (let product of this.products) {
+      if (product.quantity) {
+        this.total += product.price * product.quantity;
+      } else {
+        this.total += product.price;
+      }
+    }
+    this.total = Math.round(this.total * 100) / 100;
+    return this.total;
+  }
+
+  quantityChange(newValue: string, id: number): void {
+    const findProduct = this.products.find((product) => id == product.id);
+    if (findProduct) {
+      findProduct.quantity = parseInt(newValue);
+    }
+    this.getCartTotal();
   }
 }

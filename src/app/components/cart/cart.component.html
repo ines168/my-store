@@ -7,11 +7,17 @@
         <p>${{ product.price }}</p>
         <label for="quantity" class="form-label">Amount:</label>
         <select
+          #quantity
+          (change)="quantityChange(quantity.value, product.id!)"
           class="form-select select-input"
           aria-label="Default select example"
         >
-          <option selected value="{{ product.quantity }}">
-            {{ product.quantity }}
+          <option
+            *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+            [value]="i"
+            [attr.selected]="product.quantity == i ? true : null"
+          >
+            {{ i }}
           </option>
         </select>
       </div>
