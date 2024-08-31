@@ -48,5 +48,6 @@ export class CartComponent {
       findProduct.quantity = parseInt(newValue);
     }
     this.getCartTotal();
+    alert(`${findProduct?.name}'s quantity has changed!`);
   }
 }
