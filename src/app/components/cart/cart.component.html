@@ -5,21 +5,25 @@
       <div class="cart-item-details">
         <h6>{{ product.name }}</h6>
         <p>${{ product.price }}</p>
-        <label for="quantity" class="form-label">Amount:</label>
-        <select
-          #quantity
-          (change)="quantityChange(quantity.value, product.id!)"
-          class="form-select select-input"
-          aria-label="Default select example"
-        >
-          <option
-            *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-            [value]="i"
-            [attr.selected]="product.quantity == i ? true : null"
+        <form action="">
+          <label for="quantity" class="form-label">Amount:</label>
+          <select
+            name="quantity"
+            [(ngModel)]="product.quantity"
+            #quantitySelect="ngModel"
+            (ngModelChange)="quantityChange(quantitySelect, product.id!)"
+            class="form-select select-input"
+            aria-label="Default select example"
           >
-            {{ i }}
-          </option>
-        </select>
+            <option
+              *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+              [value]="i"
+              [attr.selected]="product.quantity == i ? true : null"
+            >
+              {{ i }}
+            </option>
+          </select>
+        </form>
       </div>
     </div>
     <h3 class="">Total: ${{ total }}</h3>

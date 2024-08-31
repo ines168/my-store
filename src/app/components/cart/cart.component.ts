@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -42,10 +42,10 @@ export class CartComponent {
     return this.total;
   }
 
-  quantityChange(newValue: string, id: number): void {
+  quantityChange(newValue: NgModel, id: number): void {
     const findProduct = this.products.find((product) => id == product.id);
     if (findProduct) {
-      findProduct.quantity = parseInt(newValue);
+      findProduct.quantity = newValue.value;
     }
     this.getCartTotal();
     alert(`${findProduct?.name}'s quantity has changed!`);
