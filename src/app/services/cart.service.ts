@@ -13,8 +13,14 @@ export class CartService {
   constructor() {}
 
   addToCart(product: Product, quantity: number) {
-    product.quantity = quantity;
-    this.cartList.push(product);
+    const findProduct = this.cartList.find((p) => p.id == product.id);
+    if (findProduct) {
+      findProduct.quantity = findProduct.quantity! += +quantity;
+    } else {
+      product.quantity = +quantity;
+      this.cartList.push(product);
+    }
+
     return this.cartList;
   }
 
