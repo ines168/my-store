@@ -50,4 +50,11 @@ export class CartComponent {
     this.getCartTotal();
     alert(`${findProduct?.name}'s quantity has changed!`);
   }
+
+  removeProduct(id: number): Product[] {
+    alert('The product has been removed!');
+    this.products.splice(id - 1, 1);
+    this.getCartTotal();
+    return this.products;
+  }
 }

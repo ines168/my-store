@@ -1,6 +1,9 @@
 <div class="cart-container" *ngIf="products.length; else emptyCart">
   <div class="cart-panel">
     <div *ngFor="let product of products" class="cart-item">
+      <button (click)="removeProduct(product.id!)">
+        <i class="bi bi-x-lg" title="Remove"></i>
+      </button>
       <img src="{{ product.url }}" />
       <div class="cart-item-details">
         <h6>{{ product.name }}</h6>
@@ -66,7 +69,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="name" class="form-label">Credit Card</label>
+      <label for="card" class="form-label">Credit Card</label>
       <input
         type="text"
         pattern="[0-9]{16}"
@@ -77,7 +80,6 @@
         minlength="16"
         [(ngModel)]="creditCard"
         #userCard="ngModel"
-        [ngModelOptions]="{ updateOn: 'blur' }"
       />
       <div class="text-danger" *ngIf="userCard.dirty && userCard.errors">
         Card number is required and must be a 16-digit number.

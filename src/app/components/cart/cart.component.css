@@ -11,6 +11,7 @@ img {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .cart-item-details {
@@ -55,4 +56,14 @@ img {
 
 .empty-cart-item {
   margin-bottom: 30px;
+}
+
+i {
+  position: absolute;
+  right: 0;
+  pointer-events: all;
+}
+
+button {
+  display: contents;
 }
