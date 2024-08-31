@@ -15,6 +15,7 @@ export class CartComponent {
   total: number = 0;
   name: string = '';
   address: string = '';
+  creditCard: number = 0;
   constructor(private cartService: CartService, private router: Router) {}
   ngOnInit(): void {
     this.products = this.cartService.getCart();
@@ -22,6 +23,7 @@ export class CartComponent {
   }
 
   onSubmit(): void {
+    console.log(this.creditCard);
     this.cartService.clearCart();
     this.cartService.paymentInfo(this.name, this.address, this.total);
     this.router.navigate(['/success']);
